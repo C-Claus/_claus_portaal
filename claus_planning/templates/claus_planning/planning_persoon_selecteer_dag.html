@@ -1,0 +1,108 @@
+{% include "claus_portaal/base.html" %}
+{% load crispy_forms_tags %}
+{% block content %}
+{% if user.is_authenticated %}
+
+
+<body>
+<!doctype html>
+<html lang="en">
+  <head>
+  
+ 
+    <!-- Font Awesome -->
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+    <!-- Moment.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.23.0/moment.min.js" integrity="sha256-VBLiveTKyUZMEzJd6z2mhfxIqz3ZATCuVMawPZGzIfA=" crossorigin="anonymous"></script>
+
+    <!-- Tempus Dominus Bootstrap 4 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tempusdominus-bootstrap-4/5.1.2/css/tempusdominus-bootstrap-4.min.css" integrity="sha256-XPTBwC3SBoWHSmKasAk01c08M6sIA5gF5+sRxqak2Qs=" crossorigin="anonymous" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tempusdominus-bootstrap-4/5.1.2/js/tempusdominus-bootstrap-4.min.js" integrity="sha256-z0oKYg6xiLq3yJGsp/LsY9XykbweQlHl42jHv2XTBz4=" crossorigin="anonymous"></script>
+
+  </head>
+<body>
+
+<div class="container">
+
+<br>
+
+<div class="row">
+<div class="col-sm-12">
+<div class="card">
+<div class="card-header">
+<h5 class="card-title"><i class="fa fa-building" aria-hidden="true"></i> Maak een dagplanning</h5>
+</div>
+<div class="card-body">      
+<p class="card-text">Hier kunt u planningen maken en beheren</p>
+
+</div>
+</div>
+
+<br>
+
+<div class="row">
+<div class="col-sm-12">
+<div class="card">
+<div class="card-header">
+<h5 class="card-title"><i class="fa fa-building" aria-hidden="true"></i> Dagplanning maken</h5>
+</div>
+<div class="card-body">      
+<p class="card-text">Maak een persoonlijke dagplanning</p>
+
+<a href="planning_persoon/1/2020/12/12" class="card-link"> Hardcoded Testlink voor 2020-12-12</a>
+<hr>
+
+<form method='POST'>
+{% csrf_token %}
+  <div class="input-group date" id="datetimepicker1" data-target-input="nearest">
+     <input type="text" class="form-control datetimepicker-input" data-target="#datetimepicker1" id="datum"/> 
+
+        <div class="input-group-append" data-target="#datetimepicker1" data-toggle="datetimepicker">
+          <div class="input-group-text"><i class="fa fa-calendar"></i></div> 
+        
+
+        </div>
+        
+    </div>
+<hr>
+    <button id="datum" type="submit" class="btn btn-outline-secondary btn-block">Bekijk planning</button>
+</form>
+
+</div>
+</div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+    
+
+ 
+</body>
+</html>
+</div>
+</div>
+</div>
+
+
+<script>
+      $(function () {
+        $("#datetimepicker1").datepicker({format: 'dd/mm/yyyy'});
+      });
+
+ 
+    </script>
+
+{% endif %}
+{% endblock %}

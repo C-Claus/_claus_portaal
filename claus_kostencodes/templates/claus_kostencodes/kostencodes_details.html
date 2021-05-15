@@ -1,0 +1,40 @@
+{% include "claus_portaal/base.html" %}
+{% load crispy_forms_tags %}
+{% block content %}
+{% if user.is_authenticated %}
+
+<body>
+
+
+<div class="container">
+
+<br>
+
+<div class="row">
+<div class="col-sm-12">
+<div class="card">
+<div class="card-header">
+<h5 class="card-title"><i class="fa fa-folder-open" aria-hidden="true"></i> Kostencodes van {{ object }}</h5>
+</div>
+<div class="card-body">      
+
+
+<p class="card-text">Naam: {{object.naam}}</p>
+<p class="card-text">Omschrijving: {{object.omschrijving}}</p>
+
+
+<hr>
+
+<p class="card-text">Status : {{object.status}}</p>
+<br>
+
+
+  
+</div>
+</div>
+<br>
+
+
+
+{% endif %}
+{% endblock %}

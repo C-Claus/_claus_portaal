@@ -1,0 +1,67 @@
+{% include "claus_portaal/base.html" %}
+{% load crispy_forms_tags %}
+{% block content %}
+{% if user.is_authenticated %}
+
+<body>
+
+<div class="container">
+
+<br>
+
+<div class="row">
+<div class="col-sm-12">
+<div class="card">
+<div class="card-header">
+<h5 class="card-title"><i class="fa fa-folder-open" aria-hidden="true"></i> Bedrijfsadministratie</h5>
+</div>
+<div class="card-body">      
+<p class="card-text">Hier kunt u bedrijven toevoegen, op deze bedrijven kunt u vervolgens personen en projecten schrijven.</p>
+
+<a href="{% url 'administratie_beheer' %}" class="btn btn-link">Beheer bedrijfsadministratie</a>      
+</div>
+</div>
+<br>
+
+
+<!--div class="row">
+<div class="col-sm-6">
+<div class="card">
+<div class="card-header">
+<h5 class="card-title"><i class="fa fa-users" aria-hidden="true"></i> Personen</h5>
+</div>
+<div class="card-body">      
+<p class="card-text">Voeg personen toe aan de bedrijfsadministratie of wijzig gegevens.
+ Tevens kunt u personen in specifieke gebruikersgroepen plaatsen zodat de functionaliteit zichtbaar blijft voor wie u wil.</p>
+<a href="#" class="card-link">Voeg Persoon toe</a>
+<a href="{% url 'personen' %}" class="card-link">Beheer Personen & gebruikersgroepen</a>      
+</div>
+</div>
+<br>
+</div>
+
+
+
+
+
+
+
+<div class="col-sm-6">
+<div class="card">
+<div class="card-header">
+<h5 class="card-title"><i class="fa fa-briefcase" aria-hidden="true"></i> Projecten</h5>
+</div>
+<div class="card-body">
+<p class="card-text">Hier kunt u projecten toevoegen, projectgegevens wijzigen, of projecten op een bepaalde status zetten zoals actief, inactief en afgesloten.</p>
+<a href="#" class="card-link">Voeg Project toe</a>
+<a href="{% url 'projecten' %}" class="card-link">Beheer projecten</a>
+</div>
+</div-->
+<br>
+</div>
+</div>
+</div>
+
+
+{% endif %}
+{% endblock %}

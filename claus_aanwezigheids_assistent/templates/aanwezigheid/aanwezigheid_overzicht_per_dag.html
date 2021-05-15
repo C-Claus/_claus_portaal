@@ -1,0 +1,77 @@
+{% include "claus_portaal/base.html" %}
+{% load crispy_forms_tags %}
+{% block content %}
+{% load render_table from django_tables2 %}
+{% if user.is_authenticated %}
+
+
+<div class="container">
+
+<br>
+
+<div class="row">
+<div class="col-sm-12">
+<div class="card">
+<div class="card-header">
+<h5 class="card-title"><i class="fa fa-user-times" aria-hidden="true"></i> Afwezigheidsoverzicht per dag</h5>
+</div>
+<div class="card-body">      
+<p class="card-text">Bekijk een dag  </p>
+<hr>
+
+
+{% for datum in  gesorteerde_datum_list %}
+    <li><a  href="{% url 'aanwezigheids_overzicht' persoon_guid datum.0  datum.1 datum.2 %}">{{ datum.2 }}-{{ datum.1 }}-{{ datum.0 }} </a><br></li>
+{% endfor %}
+<hr>
+
+<a  href="{% url 'aanwezigheid_list' %}" class="btn btn-link">Bewerk afwezigheid</a>
+
+</div>
+</div>
+
+
+<br>
+
+
+<!--div class="row">
+<div class="col-sm-12">
+<div class="card">
+<div class="card-header">
+<h5 class="card-title"><i class="fa fa-user-times" aria-hidden="true"></i> U bent tegelijkertijd afwezig met</h5>
+</div>
+<div class="card-body">      
+<p class="card-text">Bekijk personen  </p>
+<hr>
+   
+- query alle personen <br>
+- query per dag <br>
+- query tijdstip, <br>
+- vind matchende tijd <br>
+
+
+
+
+</div-->
+
+
+
+
+
+
+
+
+
+</div>
+
+
+
+
+
+<br>
+
+
+
+
+{% endif %}
+{% endblock %}

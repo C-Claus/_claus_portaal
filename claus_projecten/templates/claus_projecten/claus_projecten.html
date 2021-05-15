@@ -1,0 +1,89 @@
+{% include "claus_portaal/base.html" %}
+{% load crispy_forms_tags %}
+{% block content %}
+{% if user.is_authenticated %}
+
+<body>
+<head>
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+</head>
+
+
+<div class="container">
+
+<br>
+
+<div class="row">
+<div class="col-sm-12">
+<div class="card">
+<div class="card-header">
+<h5 class="card-title"><i class="fa fa-building" aria-hidden="true"></i> Projecten</h5>
+</div>
+<div class="card-body">      
+<p class="card-text">Hier kunt u personen toevoegen, deze personen zijn gekoppeld aan een administratie waarop ze kunnen boeken</p>
+</div>
+</div>
+
+
+
+<br>
+
+<div class="row">
+<div class="col-sm-6">
+<div class="card">
+<div class="card-header">
+<h5 class="card-title"><i class="fa fa-building" aria-hidden="true"></i> Voeg Project toe</h5>
+</div>
+<div class="card-body">      
+<p class="card-text">Voeg personen toe aan de bedrijfsadministratie of gebruikersgroepen</p>
+<!--a href="#" class="card-link">Voeg Persoon toe</a-->
+<a href="{% url 'project_maken' %}" class="btn btn-link">Projecten</a>  
+       
+</div>
+</div>
+
+
+
+
+
+<br>
+</div>
+
+
+
+
+
+
+
+
+
+<div class="col-sm-6">
+<div class="card">
+<div class="card-header">
+<h5 class="card-title"><i class="fa fa-building" aria-hidden="true"></i> Wijzig Projectgegevens</h5>
+</div>
+<div class="card-body">
+<p class="card-text">	Hier kunt u gegevens wijzigen per project</p>
+<!--a href="#" class="card-link">Voeg Project toe</a-->
+<a href="{% url 'project_list' %}" class="btn btn-link">Beheer projectgegevens</a>
+</div>
+</div>
+
+
+<br>
+
+
+
+
+
+
+
+</div>
+</div>
+</div>
+
+
+
+
+{% endif %}
+{% endblock %}

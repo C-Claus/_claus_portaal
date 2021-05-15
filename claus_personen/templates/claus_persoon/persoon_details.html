@@ -1,0 +1,49 @@
+{% include "claus_portaal/base.html" %}
+{% load crispy_forms_tags %}
+{% block content %}
+{% if user.is_authenticated %}
+
+<body>
+
+
+<div class="container">
+
+<br>
+
+<div class="row">
+<div class="col-sm-12">
+<div class="card">
+<div class="card-header">
+<h5 class="card-title"><i class="fa fa-folder-open" aria-hidden="true"></i> Persoonsgegevens van  {{ object }}</h5>
+</div>
+<div class="card-body">      
+
+
+Account: {{ object.account }} <br>
+Laatst ingelogd: {{ object.account.last_login }} <br>
+E-mail:  {{ object.account.email }}
+<hr>
+
+Persoonnr: {{ object.persoonnr }} <br>
+Naam: {{ object.naam }} <br>
+In dienst: {{ object.in_dienst_status }} <br>
+Werkgever: {{ object.administratie_werkgever }} <br>
+Gebruikersgroep: -<br>
+
+
+
+
+<hr>
+
+<br>
+
+
+  
+</div>
+</div>
+<br>
+
+
+
+{% endif %}
+{% endblock %}

@@ -1,0 +1,42 @@
+<!doctype html>
+{% include "claus_portaal/base.html" %}
+{% load crispy_forms_tags %}
+{% load render_table from django_tables2 %}
+{% block content %}
+{% if user.is_authenticated %}
+
+
+<body>
+
+<div class="container">
+
+<br>
+
+<div class="row">
+<div class="col-sm-12">
+<div class="card">
+<div class="card-header">
+<h5 class="card-title"><i class="fa fa-folder-open" aria-hidden="true"></i> Project wijzigen</h5>
+</div>
+<div class="card-body">      
+<p class="card-text">Hier kunt u bedrijven toevoegen, op deze bedrijven kunt u vervolgens personen en projecten schrijven.</p>
+
+<form method="POST">
+    {% csrf_token %}
+    {{ form|crispy }}
+    <div align="right">
+        <button  class="btn btn-outline-secondary btn-block"> Bijwerken </button
+    </div>
+</form>
+
+  
+</div>
+</div>
+<br>
+
+
+
+
+
+{% endif %}
+{% endblock %}

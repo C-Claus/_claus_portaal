@@ -1,0 +1,111 @@
+{% include "claus_portaal/base.html" %}
+{% load crispy_forms_tags %}
+{% block content %}
+{% load render_table from django_tables2 %}
+{% if user.is_authenticated %}
+
+
+
+<div class="container">
+
+    <br>
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="card">
+                
+                    <div class="card-header">
+                        <h5 class="card-title"><i class="fa fa-calendar-o" aria-hidden="true"></i> Registreer uren voor week {{ week }} <hr> {{ uren_status }}</h5>
+                    </div>
+
+                    <div class="card-body">      
+                        <p class="card-text">Uren van {{ persoon_ingelogd }}  voor week {{ week }} </p>
+                    </div>
+            </div>
+        
+        </div>
+   
+
+            <div class="col-sm-12">
+
+
+
+            {% for dag in dagen_van_de_week_list %}
+            <br>
+                <div class="card">
+                        <div class="card-header">
+                 
+                            <div class="row align-items-center">
+                                    <div class="col-md-6">
+                                    <a href="{% url 'registreer_dag' persoon_guid dag.0.year dag.0.month dag.0.day %}" class="btn btn-outline-secondary btn-sm " role="button">+</a>
+                                            <button type="button" class="btn btn-outline" data-toggle="button" aria-pressed="false" autocomplete="off">
+                                            {{ dag.1 }}  {{ dag.0 }} 
+                                            </button> 
+                                            
+
+
+                                    </div>
+                                    <div class="col-md-6">
+
+                                         
+                                         <!-- a href="{% url 'registreer_dag' persoon_guid dag.0.year dag.0.month dag.0.day %}" class="btn btn-outline-secondary btn-sm " role="button">+</a-->
+                                    </div>
+                            </div>
+                        </div>
+
+                        
+
+                    
+
+                    <div class="card-body">      
+                         <p class="card-text">
+
+                         
+
+                         {% for dag_datum, geregistreerde_uren in week_dag_dict.items %}
+                            
+                            {% if dag_datum == dag.0 %}
+                                
+
+                                {% if  geregistreerde_uren.1.count > 0 %}
+                                    <p><i> totaal: {{ geregistreerde_uren.1.0.aantal_uren }} </i></p>
+                               
+                                    {% render_table geregistreerde_uren.0 %}
+
+                                {% endif %}
+                              
+
+                            
+                            {% endif %}
+
+                        {% endfor %}
+
+                        
+
+
+                         
+                         </p>
+                    </div>
+                    
+                </div>
+            {% endfor %}
+            <br>
+            <form method='POST'>
+                 {% csrf_token %}
+                <button type="submit" class="btn btn-outline-secondary btn-block">Bevestig uren</button>
+            </form>
+            <hr>
+
+
+
+        </div>
+
+
+</div>
+
+
+
+
+
+
+{% endif %}
+{% endblock %}

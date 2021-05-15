@@ -1,0 +1,89 @@
+{% include "claus_portaal/base.html" %}
+{% load crispy_forms_tags %}
+{% block content %}
+{% if user.is_authenticated %}
+<head>
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+</head>
+<body>
+
+<div class="container">
+
+<br>
+
+<div class="row">
+<div class="col-sm-12">
+<div class="card">
+<div class="card-header">
+<h5 class="card-title"><i class="fa fa-folder-open" aria-hidden="true"></i> Kostencodes</h5>
+</div>
+<div class="card-body">      
+<p class="card-text">Hier kunt u kostencodes toevoegen..</p>
+
+  
+</div>
+</div>
+<br>
+
+
+<div class="row">
+<div class="col-sm-6">
+<div class="card">
+<div class="card-header">
+<h5 class="card-title"><i class="fas fa-folder-plus" aria-hidden="true"></i> Voeg kostencodetoe</h5>
+</div>
+<div class="card-body">      
+<p class="card-text">Voeg een nieuwe kostencode toe</p>
+<!--a href="#" class="card-link">Voeg Persoon toe</a-->
+<a href="{% url 'kostencodes_maken' %}" class="btn btn-link"> Voeg kostencode toe</a>      
+</div>
+</div>
+<br>
+</div>
+
+
+
+
+
+
+
+<div class="col-sm-6">
+<div class="card">
+<div class="card-header">
+<h5 class="card-title"><i class="fa fa-briefcase" aria-hidden="true"></i> Wijzig kostencodes</h5>
+</div>
+<div class="card-body">
+<p class="card-text">Wijzig kostencodes</p>
+<!--a href="#" class="card-link">Voeg Project toe</a-->
+<a href="{% url 'kostencodes_list' %}" class="btn btn-link"> Beheer kostencodes</a>
+</div>
+</div>
+<br>
+</div>
+
+
+
+
+
+
+<br>
+
+
+
+
+
+
+
+</div>
+
+
+
+
+
+
+
+</div>
+
+
+{% endif %}
+{% endblock %}

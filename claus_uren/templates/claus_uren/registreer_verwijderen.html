@@ -1,0 +1,31 @@
+{% include "claus_portaal/base.html" %}
+{% load render_table from django_tables2 %}
+{% block content %}
+{% if user.is_authenticated %}
+
+<br>
+
+<div class="container">
+    <div class="card">
+    <div class="card-header">
+                        <h5 class="card-title"><i class="fa fa-calendar-o" aria-hidden="true"></i> Uren verwijderen</h5>
+                    </div>
+      <div class="card-body">
+        <form method="post"> {% csrf_token %}
+            <p>Project: {{object.projectnr}}</p>
+            <hr>
+            <label>Projecttaak: {{object.projecttaaknummer}}</label><br>
+            <label>Kostencode: {{object.kostencode}}</label><br>
+            <label>Aantal uur: {{object.aantal_uur}}</label><br>
+            <label>Datum: {{object.datum}}</label><br>
+            <label>Opmerking: {{object.opmerking}}</label>
+            <hr>
+            <p>Weet u zeker dat u deze gegevens wil verwijderen?</p>
+            <input class="btn btn-outline-secondary btn-lg btn-block" type="submit" value="Bevestig">
+        </form>
+        </div>
+    </div>
+</div>
+
+{% endif %}
+{% endblock %}

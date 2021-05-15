@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+{% include "claus_portaal/base.html" %}
+{% load crispy_forms_tags %}
+{% block content %}
+
+<title>Planning</title>
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+<style>
+  .form-inline .form-group {
+  margin-right:15px;
+}
+</style>
+<body>
+
+<div class="container">
+<br>
+<label> Planning van  {{ persoon }} | {{ jaar }}-{{ maand }}-{{ dag }} </label><br>
+
+<hr>
+
+<div class="container">
+<form class="form-inline" method="post">
+  <div class="form-group form-group-lg">
+
+  {% csrf_token %}
+  {{  planning_form | crispy }} 
+
+  <button type="submit" name="save" class="btn btn-outline-secondary">+</button>&nbsp;
+
+  <button type="submit" name="delete" class="btn btn-outline-secondary">-</button>&nbsp;
+
+  <button type="submit" name="edit" class="btn btn-outline-secondary">Wijzig</button>
+
+</div>  
+</form>
+
+<hr>
+
+
+
+<br>
+
+
+
+</body> 
+</html> 
+
+
+
+
+{{ jaar }} - {{ maand }} - {{ dag }}
+
+
+
+<div id="planning" >
+<script type="text/javascript">
+  google.charts.load("current", {packages:["timeline"], 'language': 'nl'});
+  google.charts.setOnLoadCallback(drawChart);
+  function drawChart() {
+
+    var container = document.getElementById('planning_timeline');
+    var chart = new google.visualization.Timeline(container);
+    var dataTable = new google.visualization.DataTable();
+
+   
+     
+    dataTable.addColumn({ type: 'string', id: 'Project' });
+    dataTable.addColumn({ type: 'string', id: 'Projecttaak' });
+    dataTable.addColumn({ type: 'date', id: 'Start' });
+    dataTable.addColumn({ type: 'date', id: 'End' });
+
+    dataTable.addRows([
+      {% for i in planning %}
+        [ 
+          '{{ i.project }}', 
+          '{{ i.projecttaak }}',
+          new Date({{jaar}},{{maand}},{{dag}},{{ i.begintijd|date:"G" }}, {{ i.begintijd|date:"i" }},0), 
+          new Date({{jaar}},{{maand}},{{dag}},{{ i.eindtijd|date:"G" }},{{ i.eindtijd|date:"i" }} ,0) 
+         ],
+        
+      {% endfor %}
+      ]);
+
+    var options = {
+      timeline: { colorByRowLabel: true }
+    };
+
+
+
+
+
+    google.visualization.events.addListener(chart, 'select', function () {
+      selection = chart.getSelection();
+      if (selection.length > 0) {
+
+        //Project
+        console.log(dataTable.getValue(selection[0].row, 0)); 
+
+        //Projecttaak
+        console.log(dataTable.getValue(selection[0].row, 1)); 
+
+        //Begintijd
+        console.log(dataTable.getValue(selection[0].row, 2)); 
+
+        //Eindtijd
+        console.log(dataTable.getValue(selection[0].row, 3)); 
+
+
+      
+     
+
+       
+
+        console.log("hallo")
+        
+   
+       
+        
+        
+      }
+    });
+
+
+    chart.draw(dataTable, {allowHtml:true});
+  }
+
+
+
+</script>
+
+<div id="planning_timeline" style="height: 1000px;"></div>
+</div>
+
+
+
+
+
+
+</body>
+
+</html>
+
+
+{% endblock %}

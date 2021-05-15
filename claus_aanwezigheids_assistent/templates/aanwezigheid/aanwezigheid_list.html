@@ -1,0 +1,49 @@
+{% include "claus_portaal/base.html" %}
+{% load crispy_forms_tags %}
+{% load render_table from django_tables2 %}
+{% block content %}
+
+<br>
+<div class="container">
+    <div class="card">
+        <div class="card-body">
+            <h5><i class="fa fa-building" aria-hidden="true"></i> Bewerk aanwezigheid van {{ persoon }} </h5>
+        </div>
+    </div>
+</div>
+
+<br>
+
+<div class="container">
+    <div class="card">
+        <div class="card-body">
+            {% render_table table %}
+        </div>
+    </div>
+</div>
+
+<br>
+
+<div class="container">
+    <div class="card">
+        <div class="card-body">
+            {% for i in  dag_list %}
+            <li><a  href="{% url 'aanwezigheids_overzicht' persoon_id i.datum.year  i.datum.month i.datum.day %}">{{ i.datum }}</a><br></li>
+            {% endfor %} 
+
+        </div>
+    </div>
+</div>
+
+
+<br>
+
+
+
+{% endblock %}
+
+
+
+
+
+ 

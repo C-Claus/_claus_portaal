@@ -1,0 +1,42 @@
+{% include "claus_portaal/base.html" %}
+{% load crispy_forms_tags %}
+{% block content %}
+{% load render_table from django_tables2 %}
+{% if user.is_authenticated %}
+
+
+<div class="container">
+
+<br>
+
+<div class="row">
+<div class="col-sm-12">
+<div class="card">
+<div class="card-header">
+<h5 class="card-title"><i class="fa fa-user-times" aria-hidden="true"></i> Afwezigheidsoverzicht Bewerk</h5>
+</div>
+<div class="card-body">      
+<p class="card-text">Bewerk hier u afwezigheid </p>
+<hr>
+<form method="POST">
+    {% csrf_token %}
+    {{ form|crispy }}
+    <hr>
+    <div align="right">
+
+        <button type="submit" href="#" class="btn btn-outline-secondary btn-lg btn-block"> Bijwerken</button>
+    </div>
+</form>
+
+
+</div>
+</div>
+<br>
+</div>
+<br>
+
+
+
+
+{% endif %}
+{% endblock %}

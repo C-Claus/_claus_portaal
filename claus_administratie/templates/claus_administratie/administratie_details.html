@@ -1,0 +1,46 @@
+{% include "claus_portaal/base.html" %}
+{% load crispy_forms_tags %}
+{% block content %}
+{% if user.is_authenticated %}
+
+<body>
+
+
+<div class="container">
+
+<br>
+
+<div class="row">
+<div class="col-sm-12">
+<div class="card">
+<div class="card-header">
+<h5 class="card-title"><i class="fa fa-folder-open" aria-hidden="true"></i> Bedrijfsadministratie van {{ object }}</h5>
+</div>
+<div class="card-body">      
+
+
+<p class="card-text">Bedrijfsnaam: {{object.bedrijfsnaam}}</p>
+<p class="card-text">KVK nummer: {{object.kvk_nummer}}</p>
+<p class="card-text">Vestigingsnummer: {{object.vestigings_nummer}}</p>
+
+<hr>
+
+<p class="card-text">Straat + huisnummer : {{object.straatnaam_nummer}}</p>
+<p class="card-text">Postcode : {{object.postcode}}</p>
+<p class="card-text">Plaats : {{object.plaats}}</p>
+
+<hr>
+
+<p class="card-text">Status : {{object.status}}</p>
+<br>
+
+
+  
+</div>
+</div>
+<br>
+
+
+
+{% endif %}
+{% endblock %}

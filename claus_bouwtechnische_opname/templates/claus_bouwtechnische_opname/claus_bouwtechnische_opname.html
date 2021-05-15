@@ -1,0 +1,89 @@
+{% include "claus_portaal/base.html" %}
+{% load crispy_forms_tags %}
+{% block content %}
+{% if user.is_authenticated %}
+
+
+<body>
+
+
+
+
+<div class="container">
+
+<br>
+
+<div class="row">
+<div class="col-sm-12">
+<div class="card">
+<div class="card-header">
+<h5 class="card-title"><i class="fa fa-building" aria-hidden="true"></i> Bouwtechnische opname</h5>
+</div>
+<div class="card-body">      
+<p class="card-text">Hier kunt u formulieren maken en beheren die u kunt gebruiken tijdens een rondgang bij een bouwtechnische opname</p>
+</div>
+</div>
+
+
+
+<br>
+
+<div class="row">
+<div class="col-sm-6">
+<div class="card">
+<div class="card-header">
+<h5 class="card-title"><i class="fa fa-building" aria-hidden="true"></i> Formulieren</h5>
+</div>
+<div class="card-body">      
+<p class="card-text">Maak een formulier</p>
+<!--a href="#" class="card-link">Voeg Persoon toe</a-->
+<a href="{% url 'formulier_maken' %}" class="btn btn-link">Formulier maken</a>  
+       
+</div>
+</div>
+
+
+
+
+
+<br>
+</div>
+
+
+
+
+
+
+
+
+
+<div class="col-sm-6">
+<div class="card">
+<div class="card-header">
+<h5 class="card-title"><i class="fa fa-building" aria-hidden="true"></i> Formulieren beheren</h5>
+</div>
+<div class="card-body">
+<p class="card-text">	Hier kunt bestaande formulieren wijzigen</p>
+<!--a href="#" class="card-link">Voeg Project toe</a-->
+<a href="{% url 'project_list' %}" class="btn btn-link">Beheer formulieren</a>
+</div>
+</div>
+
+
+<br>
+
+
+
+
+
+
+
+</div>
+</div>
+</div>
+
+
+
+
+{% endif %}
+{% endblock %}

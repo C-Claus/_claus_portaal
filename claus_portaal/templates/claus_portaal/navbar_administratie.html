@@ -1,0 +1,39 @@
+<nav  class="navbar navbar-chb navbar-expand-lg  justify-content-end ">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+        <span class="fa fa-bars" aria-hidden="true" style="font-size:24px;color:white;"> </span>
+    </button>  
+    <div  class="collapse navbar-collapse" id="collapsibleNavbar">
+      <ul class="navbar-nav mr-auto">
+
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'claus_portaal' %}"><i class="fa fa-home" aria-hidden="true"></i> Portaal <span class="sr-only"></span></a>
+        </li>
+
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-folder-open" aria-hidden="true"></i>
+            Administratie 
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          
+            <a class="dropdown-item" href="{% url 'administratie_beheer' %}">Bedrijven</a>
+            <a class="dropdown-item" href="{% url 'personen' %}">Personen</a>
+            <a class="dropdown-item" href="{% url 'projecten' %}">Projecten</a>
+            <a class="dropdown-item" href="{% url 'kostencodes_beheer' %}">Kostencodes</a>
+            <a class="dropdown-item" href="{% url 'projecttaak_beheer' %}">Projecttaken</a>
+          </div>
+
+      </li>
+    </ul>
+
+        <ul class="navbar-nav my-2 my-lg-0">
+        
+              <li>
+                <a class="nav-link" href="{% url 'persoon_gegevens' %}"><i class="far fa-user-circle" aria-hidden="true"></i> {{ user.username }}<span class="sr-only"></span></a>
+              </li>
+              <li>
+                <a class="nav-link" href="{% url 'logout' %}"><i class="fas fa-sign-out-alt" aria-hidden="true"></i> Afmelden<span class="sr-only"></span></a>
+              </li>  
+        </ul>
+
+    </div>
+</nav>

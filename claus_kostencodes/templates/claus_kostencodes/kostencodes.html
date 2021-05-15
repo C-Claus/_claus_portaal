@@ -1,0 +1,38 @@
+{% include "claus_portaal/base.html" %}
+{% load crispy_forms_tags %}
+{% block content %}
+{% load render_table from django_tables2 %}
+{% if user.is_authenticated %}
+
+<div class="container">
+
+<br>
+
+<div class="row">
+<div class="col-sm-12">
+<div class="card">
+<div class="card-header">
+<h5 class="card-title"><i class="fa fa-user-times" aria-hidden="true"></i> Kostencodes</h5>
+</div>
+<div class="card-body">      
+<p class="card-text">Bekijk kostencodes  </p>
+<hr>
+
+
+
+<hr>
+
+<a  href="{% url 'aanwezigheid_list' %}" class="btn btn-link">Bewerk afwezigheid</a>
+
+</div>
+</div>
+
+<br>
+
+</div>
+
+
+<br>
+
+{% endif %}
+{% endblock %}

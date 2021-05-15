@@ -1,0 +1,40 @@
+{% include "claus_portaal/base.html" %}
+{% load crispy_forms_tags %}
+{% block content %}
+{% if user.is_authenticated %}
+
+
+<div class="container">
+
+<br>
+
+<div class="row">
+<div class="col-sm-12">
+<div class="card">
+<div class="card-header">
+<h5 class="card-title"><i class="fa fa-user-times" aria-hidden="true"></i> Afwezigheid van {{ persoon }}</h5>
+</div>
+<div class="card-body">      
+<p class="card-text">Hier kunt u uw afwezigheid aangeven</p>
+
+<form method='POST'>
+	{% csrf_token %}
+	{{ aanwezigheid_form | crispy }}
+	<hr>
+	<button type="submit" name="save" class="btn btn-outline-secondary btn-block">Registreer afwezigheid</button>
+</form>
+
+</div>
+</div>
+
+
+
+
+
+<br>
+
+
+
+
+{% endif %}
+{% endblock %}

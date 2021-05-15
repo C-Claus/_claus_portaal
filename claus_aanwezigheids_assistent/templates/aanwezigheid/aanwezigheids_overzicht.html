@@ -1,0 +1,132 @@
+{% include "claus_portaal/base.html" %}
+{% load crispy_forms_tags %}
+{% block content %}
+{% load render_table from django_tables2 %}
+{% if user.is_authenticated %}
+
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+
+
+<div class="container">
+
+<br>
+
+<div class="row">
+<div class="col-sm-12">
+<div class="card">
+<div class="card-header">
+<h5 class="card-title"><i class="fa fa-user-times" aria-hidden="true"></i> Afwezigheidsoverzicht van {{ persoon }} op {{ dag }}-{{ maand }}-{{ jaar }}</h5>
+</div>
+<div class="card-body">      
+<p class="card-text">Uw geregistreerde afwezigheid</p>
+
+{% render_table table_persoon_dag %}
+
+</div>
+</div>
+
+<br>
+
+<div class="row">
+<div class="col-sm-12">
+<div class="card">
+<div class="card-header">
+<h5 class="card-title"><i class="fa fa-users" aria-hidden="true"></i> U bent tegelijkertijd afwezig met de volgende personen</h5>
+</div>
+<div class="card-body">      
+<p class="card-text"> {{ persoon }}, u bent tegelijkertijd afwezig met de volgende personen</p>
+
+
+
+{% for i in render_persoon_minuut_list %}
+    {{ i.0 }}: |  begintijd: {{ i.1.0 }}  | eindtijd: {{i.2.0}}<br>
+{% endfor %}
+
+</div>
+</div>
+
+
+<br>
+
+
+
+<div class="row">
+<div class="col-sm-12">
+<div class="card">
+<div class="card-header">
+<h5 class="card-title"><i class="fa fa-user-times" aria-hidden="true"></i> Visuele controle</h5>
+</div>
+<div class="card-body">      
+<p class="card-text">overzicht</p>
+
+<div id="planning" >
+<script type="text/javascript">
+  google.charts.load("current", {packages:["timeline"], 'language': 'nl'});
+  google.charts.setOnLoadCallback(drawChart);
+  function drawChart() {
+
+    var container = document.getElementById('planning_timeline');
+    var chart = new google.visualization.Timeline(container);
+    var dataTable = new google.visualization.DataTable();
+
+    dataTable.addColumn({ type: 'string', id: 'Project' });
+    dataTable.addColumn({ type: 'string', id: 'Projecttaak' });
+    dataTable.addColumn({ type: 'date', id: 'Start' });
+    dataTable.addColumn({ type: 'date', id: 'End' });
+
+    dataTable.addRows([
+      {% for i in afwezigheid_per_dag %}
+   
+        [ 
+
+          '{{i.persoon }}', 
+          'afwezig',
+          new Date({{jaar}},{{maand}},{{dag}},{{ i.begintijd|date:"G" }}, {{ i.begintijd|date:"i" }},0), 
+          new Date({{jaar}},{{maand}},{{dag}},{{ i.eindtijd|date:"G" }},{{ i.eindtijd|date:"i" }} ,0) 
+         ],
+
+      {% endfor %}
+
+      ]);
+
+
+
+    dataTable.addRows([
+        {% for i in raakvlak_list %}
+      
+            [ 
+
+              'RAAKVLAK', 
+              'raakvlak',
+              new Date({{jaar}},{{maand}},{{dag}},{{ begintijd_overlap|date:"G" }}, {{ begintijd_overlap|date:"i" }},0), 
+              new Date({{jaar}},{{maand}},{{dag}},{{ eindtijd_overlap|date:"G" }},{{ eindtijd_overlap|date:"i" }} ,0) 
+            ],
+
+          {% endfor %}
+
+          ]);
+
+
+
+
+    var options = {
+      timeline: { colorByRowLabel: true }
+    };
+
+
+    chart.draw(dataTable, {allowHtml:true});
+  }
+
+</script>
+
+<div id="planning_timeline" style="height: 300px;"></div>
+</div>
+
+
+<br>
+
+
+
+
+{% endif %}
+{% endblock %}

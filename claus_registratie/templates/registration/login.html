@@ -1,0 +1,41 @@
+{% extends "claus_portaal/base.html" %}
+{% load crispy_forms_tags %}
+{% block content %}
+
+<html>
+<body>
+<div class="container" style="margin-top:100px">
+	<div class="col d-flex justify-content-center">
+		<div class="card" style="width: 25rem;">
+		  <div class="card-body">
+	{% if user.is_authenticated %}
+		
+		
+		<p> U bent al ingelogd, ga naar <a href={% url 'claus_portaal'%} >overzicht</a></p>
+		
+	{% else %}
+		<form method="post" class="from-group">
+			<h4>Aanmelden</h4>
+			<hr>
+			{% csrf_token %}
+			{{form|crispy}}
+			<hr>
+			<div align="right">
+				<button type="submit" class="btn btn-outline-secondary  btn-block"><i class="fa fa-sign-in" aria-hidden="true"></i>  Login</button>
+			</div>
+			
+		
+		
+			<!--p>Nog geen account? <a href="../register">Registreer hier</a></p-->  
+		
+		</form>
+		
+	{%endif %}
+</div>
+</div>
+</div>
+</div>
+</div>
+</body>
+</html>
+{% endblock %}

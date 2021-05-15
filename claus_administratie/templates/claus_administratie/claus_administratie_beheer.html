@@ -1,0 +1,68 @@
+{% include "claus_portaal/base.html" %}
+{% load crispy_forms_tags %}
+{% block content %}
+{% if user.is_authenticated %}
+
+<head>
+	<title>font awesome folder plus icon</title>
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+</head>
+<body>
+
+<div class="container">
+
+<br>
+
+<div class="row">
+<div class="col-sm-12">
+<div class="card">
+<div class="card-header">
+<h5 class="card-title"><i class="fa fa-folder-open" aria-hidden="true"></i> Administratie</h5>
+</div>
+<div class="card-body">      
+<p class="card-text">Hier kunt u bedrijven toevoegen, op deze bedrijven kunt u vervolgens personen en projecten schrijven.</p>
+
+  
+</div>
+</div>
+<br>
+
+
+<div class="row">
+<div class="col-sm-6">
+<div class="card">
+<div class="card-header">
+<h5 class="card-title"><i class="fas fa-folder-plus" aria-hidden="true"></i> Voeg bedrijf toe</h5>
+</div>
+<div class="card-body">      
+<p class="card-text">Voeg een nieuw bedrijf toe</p>
+<a href="{% url 'administratie_maken' %}" class="btn btn-link"> Voeg bedrijf toe</a>      
+</div>
+</div>
+<br>
+</div>
+
+
+<div class="col-sm-6">
+<div class="card">
+<div class="card-header">
+<h5 class="card-title"><i class="fa fa-briefcase" aria-hidden="true"></i> Wijzig bedrijfsgegevens</h5>
+</div>
+<div class="card-body">
+<p class="card-text">Wijzig bedrijfsgegevens</p>
+<!--a href="#" class="card-link">Voeg Project toe</a-->
+<a href="{% url 'administratie_list' %}" class="btn btn-link"> Beheer bedrijfsgegevens</a>
+</div>
+</div>
+<br>
+</div>
+
+
+<br>
+</div>
+
+</div>
+
+
+{% endif %}
+{% endblock %}
