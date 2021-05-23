@@ -12,9 +12,9 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 
 import os
 
-#superuser
-#ccclaus
-#doesburg1986
+from decouple import config
+
+SECRET_KEY = config("SECRET_KEY")
 
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
@@ -25,10 +25,10 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/3.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '0r4p=*!uuw*%&am11oi$ej&2$-)$uqxwaa^3!29&bp&8pepiig'
+DEFAULT_AUTO_FIELD='django.db.models.AutoField'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = []
 
