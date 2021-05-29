@@ -14,8 +14,8 @@ import os
 
 from decouple import config
 
-SECRET_KEY = config("SECRET_KEY")
-
+#SECRET_KEY = config("SECRET_KEY")
+SECRET_KEY = '0r4p=*!uuw*%&am11oi$ej&2$-)$uqxwaa^3!29&bp&8pepiig'
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -28,7 +28,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 DEFAULT_AUTO_FIELD='django.db.models.AutoField'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = []
 
