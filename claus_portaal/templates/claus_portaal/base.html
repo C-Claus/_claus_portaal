@@ -42,15 +42,15 @@
 {% load has_group %}
 
 
-{% if request.user|has_group:'Administratie' %} 
-  Administratie
-  {% include 'claus_portaal/navbar_administratie.html' %}
-{% endif %}
+{# if request.user|has_group:'Administratie' #} 
+  <!-- Administratie -->
+  {# include 'claus_portaal/navbar_administratie.html' #}
+{# endif #}
 
-{% if request.user|has_group:'Uitvoerend' %} 
- Uitvoerend
- {% include 'claus_portaal/navbar_uitvoerend.html' %}
-{% endif %}
+{# if request.user|has_group:'Uitvoerend' #} 
+ <!--Uitvoerend -->
+ {# include 'claus_portaal/navbar_uitvoerend.html' #}
+{# endif #}
 
 
 {% endif %}
