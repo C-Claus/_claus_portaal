@@ -93,12 +93,25 @@ WSGI_APPLICATION = '_claus_portaal.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
 
+#DATABASES = {
+#    'default': {
+#        'ENGINE': 'django.db.backends.sqlite3',
+#        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+#    }
+#}
+
+
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'ddlbsse57n0ch9',
+        'HOST': 'ec2-34-240-75-196.eu-west-1.compute.amazonaws.com',
+        'PORT': 5432,
+        'USER': 'qxymtdeadyafss',
+        'PASSWORD': 'cc911fed9ae3f2bda34b7d9ee762cc3d52f5bb29adbe08b1638d4e4d8d5541ec',
     }
 }
+
 
 
 # Password validation
