@@ -103,14 +103,10 @@ def registreer_vandaag(response, persoon_guid, jaar, week):
 
     #.filter(model__date__week=datetime.date.today().isocalendar()[1])
 
-    
 
     urenregistratie_persoon = UrenRegistratie.objects.filter(persoonnr=persoon_ingelogd)
     urenregistratie_per_week = urenregistratie_persoon
  
-
- 
-
     for jaar_, week_nummer in week_nummer_list:
        
         for dag in range(1,8):
@@ -122,25 +118,14 @@ def registreer_vandaag(response, persoon_guid, jaar, week):
         #print (week_nummer)
         break
 
-        
 
-
-    
     #for k,v in datum_weeknummer_dict.items():
     #    print (k, v)
-        
-  
-
-            
+     
     #data_per_week = ["2021-04-05", "2021-04-06"]
 
     #urenregistratie_per_week = urenregistratie_persoon.filter(datum__range=data_per_week)
-    
 
-   
-
-
- 
     return render(response, 'claus_uren/registreer_vandaag.html', {     "persoon_ingelogd":persoon_ingelogd,
                                                                       
                                                                         "huidig_weeknummer":huidig_weeknummer,
@@ -213,9 +198,6 @@ def registreer_week(response, persoon_guid, jaar, week):
                 url = reverse('registreer_week_bevestigd', kwargs={ 'persoon_guid':persoon_guid, 'jaar': jaar, 'week':week})
                 return HttpResponseRedirect(url)
 
-             
-
-
 
     return render(response, 'claus_uren/registreer_week.html', { "persoon_ingelogd":persoon_ingelogd,
                                                                 "dagen_van_de_week_list":dagen_van_de_week_list,
@@ -283,10 +265,6 @@ def registreer_dag(response, persoon_guid, jaar, maand, dag):
     week_nummer = datetime.date(jaar, maand, dag).isocalendar()[1]
 
 
-
-
-
-
     #initialisatie waarden voor het form 
     persoon_pk = persoon_ingelogd.id
     persoon_bedrijf = persoon_ingelogd.administratie_werkgever
@@ -338,17 +316,7 @@ def registreer_dag(response, persoon_guid, jaar, maand, dag):
             url = reverse('registreer_week', kwargs={ 'persoon_guid':persoon_guid, 'jaar': jaar, 'week':week_nummer})
             return HttpResponseRedirect(url)
 
-
-
-
     #registratie_uren_form.fields['persoonnr'].widget = forms.HiddenInput()
-
-    
-
-
-
-
-
 
 
     return render(response, "claus_uren/registreer_dag.html", { "persoon_ingelogd":persoon_ingelogd,
@@ -411,6 +379,4 @@ class UrenVerwijderen(DeleteView):
         url = reverse('registreer_week', kwargs={'persoon_guid':persoon.persoon_guid, 'jaar':registratie.datum.year, 'week':weeknummer})
 
         return url
-
-
-     
+ 
