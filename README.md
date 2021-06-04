@@ -7,7 +7,7 @@ De scope is een kleine applicatie schaalbaar op ieder device.
 Live demo is hier te vinden:
 https://claus-portaal.herokuapp.com/claus_portaal
 
-
+- - -
 ## Uren Portaal Status en Toekomstige ontwikkelingen
 
 Status applicatie per 05-06-2021:
@@ -22,7 +22,7 @@ Toekomstige ontwikkelingen:
 - Voor toevoegen van data door eindgebruikers Modal Forms gebruiken ipv aparte pagina's
 
 
-
+- - -
 ## Uren Portaal Screenshots met URLs
 
 
