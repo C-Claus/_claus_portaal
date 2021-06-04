@@ -13,3 +13,5 @@ Voor inloggegevens neem contact op.
 
 
 ![iPhone preview](https://github.com/C-Claus/_claus_portaal/blob/master/claus-portaal.herokuapp.com_claus_portaal(iPhone%206_7_8)%20(1).png)
+
+<img src="https://github.com/C-Claus/_claus_portaal/blob/master/claus-portaal.herokuapp.com_claus_portaal(iPhone%206_7_8)%20(1).png" width="48">
