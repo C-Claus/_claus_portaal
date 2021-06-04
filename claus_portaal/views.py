@@ -24,7 +24,9 @@ def index(response):
 
 def claus_portaal(response):
 
-    persoon_groep = response.user.groups.all()[0]
+
+
+    persoon_groep = response.user.groups.all()
     persoon_id = Personen.objects.filter(account_id=response.user.id).values_list('id', flat=True)[0]
 
 
