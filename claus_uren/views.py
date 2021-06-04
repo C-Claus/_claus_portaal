@@ -55,10 +55,10 @@ from claus_uren.models import UrenRegistratie
 from .tables import UrenRegistratieTable, UrenRegistratieTableBevestigd
 
 
-import locale
+#import locale
 
 
-locale.setlocale(locale.LC_TIME, "nl_NL") 
+#locale.setlocale(locale.LC_TIME, "nl_NL") 
 
 
 
