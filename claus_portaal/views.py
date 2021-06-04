@@ -3,16 +3,23 @@ import datetime
 from datetime import date
 
 from claus_personen.models import Personen
+from django.urls import reverse
+from django.http import HttpResponseRedirect
 
 from django import template
 register = template.Library() 
 
 def index(response): 
 
-    persoon_groep = response.user.groups.all()[0]
+    #persoon_groep = response.user.groups.all()[0]
+
+    #url = 'login'
+
+    url = reverse('login')
+    return HttpResponseRedirect(url)
 
   
-    return render(response, "claus_portaal/base.html",{ "persoon_groep":persoon_groep})
+    return render(response, "claus_portaal/base.html")
                                                         
 
 def claus_portaal(response):
