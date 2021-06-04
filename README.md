@@ -5,7 +5,7 @@ Een urenregistratie-applicatie gemaakt met Django, Python & Javascript.
 De scope is een kleine applicatie schaalbaar op ieder device. 
 
 Live demo is hier te vinden:
-https://claus-portaal.herokuapp.com/claus_portaal
+https://claus-portaal.herokuapp.com/
 
 - - -
 ## Uren Portaal Status en Toekomstige ontwikkelingen
