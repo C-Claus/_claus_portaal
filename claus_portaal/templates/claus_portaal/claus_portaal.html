@@ -10,9 +10,25 @@
 
 <br>
 
-
-
 <div class="row">
+
+<div class="col-sm-6">
+<div class="card">
+<div class="card-header">
+<h5 class="card-title"><i class="fa fa-calendar-o" aria-hidden="true"></i> Registreer uren</h5>
+</div>
+
+<div class="card-body">      
+<p class="card-text"> Registreer hier uw uren per dag of week</p>
+
+<a href="{% url 'registreer_vandaag' persoon_guid jaar week %}" class="btn btn-link">Registreer uren</a>
+<a href="#" class="btn btn-link">Beheer uren</a>
+</div>
+</div>
+
+</div>
+
+
 <div class="col-sm-6">
 <div class="card">
 <div class="card-header">
@@ -47,21 +63,6 @@
 
 
 
-<div class="col-sm-6">
-<div class="card">
-<div class="card-header">
-<h5 class="card-title"><i class="fa fa-building" aria-hidden="true"></i> Bouwtechnische opname</h5>
-</div>
-
-<div class="card-body">      
-<p class="card-text"> Bouwtechnische opname</p>
-
-<a href="{% url 'claus_bouwtechnische_opname' %}" class="btn btn-link">Maak  opname</a>
-<a href="#" class="btn btn-link">Beheer  opnames</a>
-</div>
-</div>
-<br>
-</div>
 
 
 
@@ -69,14 +70,14 @@
 <div class="col-sm-6">
 <div class="card">
 <div class="card-header">
-<h5 class="card-title"><i class="fa fa-calendar-o" aria-hidden="true"></i> Registreer uren</h5>
+<h5 class="card-title"><i class="fa fa-calendar-o" aria-hidden="true"></i> Persoonsgegevens</h5>
 </div>
 
 <div class="card-body">      
-<p class="card-text"> Registreer hier uw uren per dag of week</p>
+<p class="card-text"> Beheer hier uw persoonsgegevens</p>
 
-<a href="{% url 'registreer_vandaag' persoon_guid jaar week %}" class="btn btn-link">Registreer uren</a>
-<a href="#" class="btn btn-link">Beheer uren</a>
+<a href="{% url 'registreer_vandaag' persoon_guid jaar week %}" class="btn btn-link">Mijn persoonsgegevens</a>
+<a href="#" class="btn btn-link">Bekijk personen</a>
 </div>
 </div>
 <br>
