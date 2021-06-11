@@ -37,6 +37,7 @@
                             <div class="row align-items-center">
                                     <div class="col-md-6">
                                     <a href="{% url 'registreer_dag' persoon_guid dag.0.year dag.0.month dag.0.day %}" class="btn btn-outline-secondary btn-sm " role="button">+</a>
+                                    <!--a href="{% url 'registreer_dag' persoon_guid dag.0.year dag.0.month dag.0.day %}" class="btn btn-outline-secondary btn-sm " role="button">MODAL FORM</a-->
                                             <button type="button" class="btn btn-outline" data-toggle="button" aria-pressed="false" autocomplete="off">
                                             {{ dag.1 }}  {{ dag.0 }} 
                                             </button> 
@@ -109,3 +110,6 @@
 
 {% endif %}
 {% endblock %}
+
+
+
