@@ -3,6 +3,7 @@ import datetime
 from datetime import date
 
 from claus_personen.models import Personen
+from claus_administratie.models import BedrijfsAdministratie
 from django.urls import reverse
 from django.http import HttpResponseRedirect
 
@@ -20,19 +21,38 @@ def index(response):
 
   
     return render(response, "claus_portaal/base.html")
+
+def persoon_administratie(response):
+
+    #persoon ingelogd
+
+    #persoon groep
+
+
+    #persoon administratie
+    persoon = Personen.objects.get(account_id=response.user.id)
+    persoon_administratie = persoon.administratie_werkgever
+ 
+
+    return persoon_administratie
+
+
+
                                                         
 
 def claus_portaal(response):
-
 
 
     persoon_groep = response.user.groups.all()
     persoon_id = Personen.objects.filter(account_id=response.user.id).values_list('id', flat=True)[0]
 
 
-    account_id = response.user.id
-    persoon_ingelogd = Personen.objects.get(account=account_id)
+  
+    persoon_ingelogd = Personen.objects.get(account=response.user.id)
     persoon_guid = persoon_ingelogd.persoon_guid
+    persoon_administratie = persoon_ingelogd.administratie_werkgever
+
+
 
 
     nu = datetime.datetime.now()
@@ -45,5 +65,6 @@ def claus_portaal(response):
                                                                     "persoon_guid":persoon_guid,
                                                                     "jaar":huidig_jaar,
                                                                     "week":huidige_week,
+                                                                    "persoon_administratie":persoon_administratie
                                                                     
                                                                     })
